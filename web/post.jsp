@@ -25,9 +25,17 @@
 
     <h4>Comments</h4>
 
+    <form action="/post/${post.id}" method="post">
+      Comment: <input type="text" name="comment"><br />
+      <input type="submit" value="send">
+    </form>
+    <br>
+
+
+
     <c:forEach items="${comments}" var="comment">
         <p>
-        <h4><c:out value="${comment.author}"/>: </h4>
+        <h4><c:out value="${comment.time} - ${comment.author}"/>: </h4>
         <c:out value="${comment.text}"/>
         </p>
     </c:forEach>

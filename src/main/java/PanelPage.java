@@ -16,12 +16,12 @@ public class PanelPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession(false);
-        if(session == null || session.getAttribute("login") == null) {
+
+        if (session == null || session.getAttribute("login") == null) {
             resp.sendRedirect("/login");
+            return;
         }
         else {
-            req.setAttribute("login", session.getAttribute("login"));
-            req.setAttribute("role", session.getAttribute("role"));
             view = req.getRequestDispatcher("panel.jsp");
             view.forward(req,resp);
         }
@@ -32,18 +32,15 @@ public class PanelPage extends HttpServlet {
         HttpSession session=req.getSession(false);
 
         if (req.getParameter("manage") != null) {
-            System.out.println((String)session.getAttribute("role"));
-            System.out.println(((String)session.getAttribute("role")).equalsIgnoreCase("admin"));
             if(((String)session.getAttribute("role")).equalsIgnoreCase("editor") || ((String)session.getAttribute("role")).equalsIgnoreCase("admin")) {
                 resp.sendRedirect("/manage");
             }
-        } else if (((String)session.getAttribute("role")).equalsIgnoreCase("admin")) {
-           if(req.getParameter("backup") != null) {
-               DBAdminConnector.INSTANCE.backup();
-           }
-           else if(req.getParameter("restore") != null) {
-               resp.sendRedirect("/restore");
-           }
+        }
+        else if(req.getParameter("backup") != null) {
+                resp.sendRedirect("/backup");
+        }
+        else if (req.getParameter("add") != null) {
+                resp.sendRedirect("/add");
         }
     }
 }

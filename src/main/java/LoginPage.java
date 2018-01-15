@@ -28,7 +28,7 @@ public class LoginPage extends HttpServlet {
         password = req.getParameter("password");
 
         System.out.println(login + " " + password);
-        DBAdminConnector dbConnector = DBAdminConnector.INSTANCE;
+        DBUserConnector dbConnector = DBUserConnector.INSTANCE;
         Connection connection = dbConnector.getConnection();
         resp.setContentType("text/html");
 

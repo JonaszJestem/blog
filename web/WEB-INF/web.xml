@@ -34,4 +34,9 @@
         <servlet-name>Logout</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+    <servlet-name>BackupRestoreDB</servlet-name>
+    <url-pattern>/backup</url-pattern>
+    </servlet-mapping>
 </web-app>

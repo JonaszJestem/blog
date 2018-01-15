@@ -1,4 +1,5 @@
 import Database.DBAdminConnector;
+import Database.DBUserConnector;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +15,7 @@ public class HomePage extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        DBAdminConnector dbConnector = DBAdminConnector.INSTANCE;
+        DBUserConnector dbConnector = DBUserConnector.INSTANCE;
         Connection connection = dbConnector.getConnection();
         resp.setContentType("text/html");
         try {

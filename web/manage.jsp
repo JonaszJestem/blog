@@ -18,13 +18,12 @@
 
 <c:forEach items="${posts}" var="post">
     <p>
-    <h4>
     <form action="/manage" method="post">
         <button type="submit" name="remove" value="${post.id}">Remove</button>
         <button type="submit" name="edit" value="${post.id}">Edit</button>
+            <c:out value="${post.title}"/>
+        <a href="/post/${post.id}">Read more</a>
     </form>
-        <c:out value="${post.title}"/><br /></h4>
-    <a href="/post/${post.id}">Read more</a>
     </p>
 </c:forEach>
 </body>

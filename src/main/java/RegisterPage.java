@@ -1,4 +1,5 @@
 import Database.DBAdminConnector;
+import Database.DBUserConnector;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,7 +32,7 @@ public class RegisterPage extends HttpServlet {
         email = req.getParameter("email");
 
         System.out.println(login + " " + password + " " + email);
-        DBAdminConnector dbConnector = DBAdminConnector.INSTANCE;
+        DBUserConnector dbConnector = DBUserConnector.INSTANCE;
         Connection connection = dbConnector.getConnection();
         resp.setContentType("text/html");
         try {

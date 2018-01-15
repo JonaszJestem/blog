@@ -27,7 +27,7 @@
       <form action="/panel" method="post">
         <button type="submit" name="manage" value="manage">Manage posts</button>
         <button type="submit" name="backup" value="backup">Backup db</button>
-        <button type="submit" name="restore" value="restore">Restore db</button>
+        <button type="submit" name="add" value="add">Add post</button>
       </form>
 
 
@@ -36,6 +36,7 @@
     <c:when test="${role == 'editor'}">
   <form action="/panel" method="post">
     <button type="submit" name="manage" value="manage">Manage posts</button>
+    <button type="submit" name="add" value="add">Add post</button>
   </form>
     </c:when>
 
